@@ -20,6 +20,8 @@ static k_tid_t tx_tid;
 static K_THREAD_STACK_DEFINE(tx_stack, STACKSIZE);
 static struct k_thread tx_data;
 
+const struct device *can_dev = DEVICE_DT_GET(DT_NODELABEL(can1));
+
 /* For testing purposes, we create another RX receiver if configured so */
 #if CONFIG_NET_SOCKETS_CAN_RECEIVERS == 2
 static k_tid_t rx_tid;
@@ -256,7 +258,10 @@ cleanup:
 void main(void)
 {
 	/* Let the device start before doing anything */
-	k_sleep(K_SECONDS(2));
+	while (!device_is_ready(can_dev)) {
+		printk("CAN: Device %s not ready.\n", can_dev->name);
+		k_sleep(K_SECONDS(1));
+	}
 	
 	int fd;
 
