@@ -1,0 +1,4 @@
+&can1 {
+        status = "okay";
+        bus-speed = < 500000 >;
+};

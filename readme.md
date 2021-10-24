@@ -23,3 +23,9 @@
 
 Test this :
 - [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html)
+
+---
+
+## CAN API
+
+- [Controller Area Network (CAN)](https://docs.zephyrproject.org/latest/reference/networking/can_api.html)

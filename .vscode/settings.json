@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.asm": "avr",
+        "zephyr.h": "c"
+    }
+}
