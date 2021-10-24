@@ -28,8 +28,8 @@
 
 ## `stm32f429zi` (`nucleo_f429zi`) :
 
-- [hal_stm32/dts/st/f4/stm32f429zitx-pinctrl.dtsi](https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/f4/stm32f429zitx-pinctrl.dtsi)
 - [ST Nucleo F429ZI](https://github.com/zephyrproject-rtos/zephyr/blob/main/boards/arm/nucleo_f429zi/doc/index.rst#st-nucleo-f429zi)
+- [hal_stm32/dts/st/f4/stm32f429zitx-pinctrl.dtsi](https://github.com/zephyrproject-rtos/hal_stm32/blob/main/dts/st/f4/stm32f429zitx-pinctrl.dtsi)
 
 ## Modules
 
