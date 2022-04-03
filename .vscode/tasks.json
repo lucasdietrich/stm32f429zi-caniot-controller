@@ -2,16 +2,88 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
+    "options": {
+        "env": {
+            "venvPath": "../.venv",
+            "westPath": "../.venv/bin/west",
+            "netToolsPath": "../tools/net-tools",
+            "board": "nucleo_f429zi",
+            "consolePort": "/dev/ttyACM1",
+            "serialNumber": "303636434646343935323534373037383637323031333233"
+        }
+    },
     "tasks": [
         {
-            "label": "UART Console",
+            "label": "Console",
             "type": "shell",
-            "command": "screen /dev/ttyACM0 115200",
+            "command": "screen ${consolePort} 115200",
             "group": "test",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
             }
-        }
+        },
+        {
+            "label": "Build",
+            "detail": "Build",
+            "type": "shell",
+            "command": "${westPath}",
+            "args": [
+                "build",
+                "-s",
+                "zephyr",
+                "--board=${board}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash",
+            "detail": "Build",
+            "type": "shell",
+            "command": "${westPath}",
+            "args": [
+                "flash",
+                "--serial",
+                "${serialNumber}"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+			"command": "rm -rf ${workspaceFolder}/build",
+            "group": "build",
+            "args": [
+            ],
+            "options": {
+                "statusbar": {
+                    "hide": false
+                }
+            },
+            "presentation": {
+                "echo": false,
+            },
+            "problemMatcher": []
+        },
     ]
 }
