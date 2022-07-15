@@ -44,7 +44,7 @@ int settings_init(void)
 	fs.sector_size = info.size;
 	fs.sector_count = SECTOR_COUNT;
 
-	rc = nvs_init(&fs, flash_dev->name);
+	rc = nvs_mount(&fs);
 	if (rc) {
 		LOG_ERR("Unable to initialize nvs rc=%d\n", rc);
 		goto exit;

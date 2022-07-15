@@ -120,16 +120,16 @@
                 compatible = "pwm-leds";
                 green_pwm_led: led_pwm_0 {
                         status = "okay";
-                        pwms = <&tim3pwm 0x03 1000000 PWM_POLARITY_NORMAL>;
+                        pwms = <&tim3pwm 0x03 1000000000 PWM_POLARITY_NORMAL>;
                 };
                 blue_pwm_led: led_pwm_1 {
                         status = "okay";
-                        pwms = <&tim4pwm 0x02 1000000 PWM_POLARITY_NORMAL>;
+                        pwms = <&tim4pwm 0x02 1000000000 PWM_POLARITY_NORMAL>;
                 };
                 /*
                 red_pwm_led: led_pwm_2 {
                         status = "okay";
-                        pwms = <&tim8pwm 0x02 1000000 PWM_POLARITY_NORMAL>;
+                        pwms = <&tim8pwm 0x02 1000000000 PWM_POLARITY_NORMAL>;
                 };
                 */
         };

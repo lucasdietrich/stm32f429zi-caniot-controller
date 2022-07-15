@@ -29,12 +29,20 @@ static void ipc_work_handler(struct k_work *work)
 
 	/* process all available messages */
 	while (k_msgq_get(&ipc_ble_msgq, &frame, K_NO_WAIT) == 0U) {
+
+/* TODO remove this warning suppress */
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress-of-packed-member"
+
 		ret = ha_register_xiaomi_from_dataframe(
 			(xiaomi_dataframe_t *)frame.data.buf);
 		if (ret != 0) {
 			LOG_ERR("Failed to handle BLE Xiaomi record, err: %d",
 				ret);
 		}
+
+#pragma GCC diagnostic pop
+
 	}
 
 	// optional ?

@@ -89,8 +89,6 @@ void main(void)
 	leds_init();
 	button_init();
 #endif
-	printk("App started\n");
-
 	crypto_mbedtls_heap_init();
 	net_interface_init();
 
@@ -101,6 +99,8 @@ void main(void)
 #ifdef TEMP_NODE
 	die_temp_dev_init();
 #endif /* TEMP_NODE */
+
+	printk("Starting...\n");
 
 	uint32_t counter = 0;
 
